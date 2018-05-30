@@ -19,9 +19,6 @@ export default {
     }
   },
   methods: {
-    backHome () {
-      this.$router.push({path: 'HomePage'})
-    }
   },
   computed: {
     state () {
@@ -34,9 +31,8 @@ export default {
 <template>
   <div class="HomePage">
     <div class="header">
-      <el-button @click="backHome">首页</el-button>
-      header{{ name }}
-      vuex:{{ state }}
+      eventBus:{{ name }},
+      vuex state:{{ state }}
     </div>
     <div class="content">
       <ul class="nav">
@@ -55,12 +51,18 @@ export default {
 
 <style lang="scss">
 .HomePage {
+  
   .header {
-    background: red;
     height: 100px;
     line-height: 100px;
     font-size: 20px;
-    color: rgba(255, 255, 255, 1)
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+
+    background-image: url('../assets/recycled_texture_background_by_sandeep_m-d6aeau9_PZ9chud.jpg');
+    background-size: 100% 100%;  
+    -moz-background-size: 100% 100%;  
+    -webkit-background-size: 100% 100%;
   }
   .content {
     display: flex;
@@ -77,6 +79,9 @@ export default {
         line-height: 30px;
         background: gray;
         border-bottom: 1px solid burlywood;
+        &:hover {
+          background: red;
+        }
         a {
           text-decoration: none;
         }
