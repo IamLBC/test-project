@@ -1,7 +1,6 @@
 <script>
 import {
-  mapActions,
-  mapMutations
+  mapState
 } from 'vuex'
 
 export default {
@@ -9,7 +8,6 @@ export default {
   components: {
   },
   created () {
-    this.get()
     this.$eventBus.$on('test', val => {
       console.log(val,'val')
       this.name = val
@@ -21,14 +19,13 @@ export default {
     }
   },
   methods: {
-    test () {
-      this.get()
-    },
-    ...mapActions({
-      get: 'increment'
-    }),
     backHome () {
       this.$router.push({path: 'HomePage'})
+    }
+  },
+  computed: {
+    state () {
+      return this.$store.state.count
     }
   }
 }
@@ -39,6 +36,7 @@ export default {
     <div class="header">
       <el-button @click="backHome">首页</el-button>
       header{{ name }}
+      vuex:{{ state }}
     </div>
     <div class="content">
       <ul class="nav">
@@ -48,7 +46,7 @@ export default {
         <li>
           <router-link to="Page2">PAGE2</router-link>
         </li>
-        <li v-for="i in 11">{{ '路由'+i }}</li>
+        <li v-for="(item,index) in 11" :key="index">{{ '路由'+item }}</li>
       </ul>
       <div class="routerView"><router-view></router-view></div>
     </div>

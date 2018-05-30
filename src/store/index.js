@@ -5,11 +5,11 @@ Vue.use(Vuex)
 const INCREMENT = 'increment'
 export default new Vuex.Store({
     state: {
-        count: 0
+        count: 'IM START'
     },
     mutations: {
-        [INCREMENT] (state) {
-            state.count++
+        [INCREMENT] (state, payload) {
+            state.count = payload.str
         }
     },
     actions: {

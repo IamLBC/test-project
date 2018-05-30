@@ -1,5 +1,5 @@
 <script>
-
+import {mapMutations} from 'vuex'
 export default {
   name: 'Page2',
   components: {
@@ -7,6 +7,16 @@ export default {
   data () {
     return {
     }
+  },
+  methods: {
+    temp () {
+      this.$store.commit('increment', {
+        str: 'okchanged'
+      })
+    },
+    ...mapMutations({
+      changeState: 'increment'
+    })
   }
 }
 </script>
@@ -14,6 +24,7 @@ export default {
 <template>
   <div class="Page2">
     page2
+    <el-button @click="temp">changeState</el-button>
   </div>
 </template>
 
