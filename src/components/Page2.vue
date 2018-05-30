@@ -1,5 +1,5 @@
 <script>
-import {mapMutations} from 'vuex'
+// import {mapMutations} from 'vuex'
 export default {
   name: 'Page2',
   components: {
@@ -11,12 +11,9 @@ export default {
   methods: {
     temp () {
       this.$store.commit('increment', {
-        str: 'okchanged'
+        str: 'ok success'
       })
-    },
-    ...mapMutations({
-      changeState: 'increment'
-    })
+    }
   }
 }
 </script>

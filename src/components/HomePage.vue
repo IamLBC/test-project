@@ -66,7 +66,7 @@ export default {
   }
   .content {
     display: flex;
-    height: 400px;
+    height: 403px;
     .nav {
       width: 20%;
       height: 100%;
