@@ -3,20 +3,19 @@
 import Vue from 'vue'
 import router from './router'
 
-/* element组件 */
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-Vue.use(ElementUI)
-/* element组件 END */
 
 import store from '@/store'
 import eventBus from './plugin/index'
-Vue.use(eventBus)
-
-
-Vue.config.productionTip = false
 
 import App from './App'
+
+Vue.use(ElementUI)
+
+Vue.use(eventBus)
+
+Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({

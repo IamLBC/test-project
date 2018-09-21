@@ -1,7 +1,7 @@
 <script>
-import {
-  mapState
-} from 'vuex'
+// import {
+//   mapState
+// } from 'vuex'
 
 export default {
   name: 'HomePage',
@@ -9,7 +9,7 @@ export default {
   },
   created () {
     this.$eventBus.$on('test', val => {
-      console.log(val,'val')
+      console.log(val, 'val')
       this.name = val
     })
   },
@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     go (path) {
-      this.$router.push(path)
+      this.$router.push({ name: path })
     }
   },
   computed: {
@@ -36,16 +36,17 @@ export default {
     <div class="header">
       <el-button @click="go('grid')">grid</el-button>
       <el-button @click="go('elementTable')">elementTable</el-button>
+      <el-button @click="go('liaotian')">liaotian</el-button>
       eventBus:{{ name }},
       vuex state:{{ state }}
     </div>
     <div class="content">
       <ul class="nav">
         <li>
-          <router-link to="Page1">自定义指定directives</router-link>
+          <router-link :to="{name: 'page1'}">自定义指定directives</router-link>
         </li>
         <li>
-          <router-link to="Page2">PAGE2</router-link>
+          <router-link :to="{name: 'page2'}">PAGE2</router-link>
         </li>
         <li v-for="(item,index) in 11" :key="index">{{ '路由'+item }}</li>
       </ul>
